@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  php:
+    build:
+      context: .
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/ci3
+    working_dir: /ci3
+    entrypoint: "php -S 0.0.0.0:8080 -t public/"
